@@ -1,0 +1,3 @@
+[submodule "FroggerReplica/Assets/NorLibUnity"]
+	path = FroggerReplica/Assets/NorLibUnity
+	url = git@github.com:tacman/NorLibUnity.git
