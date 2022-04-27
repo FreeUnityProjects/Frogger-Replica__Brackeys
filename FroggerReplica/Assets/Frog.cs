@@ -1,20 +1,21 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Frog : MonoBehaviour {
 
 	public Rigidbody2D rb;
+	private Vector2 inputVec;
+	private float speed = 0.1f;
+	public void OnMove(InputValue input)
+	{
+		inputVec = input.Get<Vector2>();
+		// moveVec = new Vector3(inputVec.x, 0, inputVec.y);
+	}
+
 
 	void Update () {
-
-		if (Input.GetKeyDown(KeyCode.RightArrow))
-			rb.MovePosition(rb.position + Vector2.right);
-		else if (Input.GetKeyDown(KeyCode.LeftArrow))
-			rb.MovePosition(rb.position + Vector2.left);
-		else if (Input.GetKeyDown(KeyCode.UpArrow))
-			rb.MovePosition(rb.position + Vector2.up);
-		else if (Input.GetKeyDown(KeyCode.DownArrow))
-			rb.MovePosition(rb.position + Vector2.down);
+		rb.MovePosition(rb.position + (speed * inputVec));
 
 	}
 
